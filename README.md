@@ -8,7 +8,11 @@ The default running commands for NER and POS tagging, and NP Chunking are:
 
 - Named Entity Recognition (NER):
 ```
-python train_wc.py --train_file ./data/ner/train.txt --dev_file ./data/ner/testa.txt --test_file ./data/ner/testb.txt --checkpoint ./checkpoint/ner_ --caseless --fine_tune --high_way --co_train
+python tbner.py --train_file ~/data/ner/train.txt --dev_file ~/data/ner/testa.txt --test_file ~/data/ner/testb.txt --checkpoint ./checkpoint/ner_ --caseless --fine_tune --high_way --co_train --emb_file ~/embedding/glove.6B.100d.txt
+```
+
+```
+nohup python tbner.py --train_file ~/data/ner/train.txt --dev_file ~/data/ner/testa.txt --test_file ~/data/ner/testb.txt --checkpoint ./checkpoint/ner_ --caseless --fine_tune --high_way --co_train --emb_file ~/embedding/glove.6B.100d.txt &
 ```
 
 - Part-of-Speech (POS) Tagging:
