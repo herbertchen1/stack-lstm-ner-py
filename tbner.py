@@ -141,8 +141,14 @@ if __name__ == "__main__":
         epoch_loss = 0
         ner_model.train()
         for f_f, f_p, b_f, b_p, w_f, tg_v, mask_v, len_v in tqdm(
-                itertools.chain.from_iterable(dataset_loader), mininterval=2,
-                desc=' - Tot it %d (epoch %d)' % (tot_length, args.start_epoch), leave=False, file=sys.stdout):
+                itertools.chain.from_iterable(dataset_loader),
+                mininterval=2,
+                desc=' - Tot it %d (epoch %d)' % (tot_length, args.start_epoch), 
+                leave=False, 
+                file=sys.stdout
+                ):
+            #f_f, f_p, b_f, b_p, w_f, tg_v, mask_v, len_v 都是什么?????
+            #Ex. for i in tqdm(range(1000)):
             f_f, f_p, b_f, b_p, w_f, tg_v, mask_v = packer.repack_vb(f_f, f_p, b_f, b_p, w_f, tg_v, mask_v, len_v)
             ner_model.zero_grad()
             scores = ner_model(f_f, f_p, b_f, b_p, w_f)
